@@ -5,7 +5,7 @@ public class Personas {
 	protected int id;
 	protected  String nombre;
 	protected  String telefono;
-	
+	protected int nuevoId;
 	 
 	//contructor por defecto
 	Personas(){
@@ -29,6 +29,24 @@ public class Personas {
 		
 	}
 	
+	public	int actualizarPersona(int nuevoId) {
+		this.nuevoId = nuevoId;
+		return nuevoId;
+	}
+	
+	
+
+	public int getNuevoId() {
+		return nuevoId;
+	}
+
+
+
+	public void setNuevoId(int nuevoId) {
+		this.nuevoId = nuevoId;
+	}
+
+
 
 	public int getId() {
 		return id;

@@ -18,18 +18,21 @@ public class ConsolaBanco {
 		// commit2.2
 		///probando2.1
 		Scanner keyboard = new Scanner(System.in);
-
+		
+		Gestor g1 = null;
 		Gestor Gestor1 = null;
 		Integer numero1 = null;
 
+		
+		
 		int menuSeleccionado = -1;
 
 		do {
 			System.out.println("1. Crear Gestor");
 			System.out.println("2. Insercion masiva de gestores con datos aleatorios");
-			System.out.println("3. Crear clientes");
+			System.out.println("3. Obtención de un Gestor");
 			System.out.println("4. Ver todos Gestores");
-			System.out.println("5. Mostrar notas");
+			System.out.println("5. Actualiza Gestor");
 			System.out.println("0. Salir\n");
 			System.out.print("Opción: ");
 			menuSeleccionado = keyboard.nextInt();
@@ -45,7 +48,7 @@ public class ConsolaBanco {
 
 				System.out.println("--------------------------------------------");
 
-				System.out.println("Id del gestor");
+				System.out.println("Id del gestor:");
 
 				int idNuevo = keyboard.nextInt();
 
@@ -68,7 +71,7 @@ public class ConsolaBanco {
 				int idOficina = keyboard.nextInt();
 				System.out.println("--------------------------------------------");
 
-				Gestor g1 = new Gestor(idNuevo, nombre, numeroTlfn, idOficina);
+				 g1 = new Gestor(idNuevo, nombre, numeroTlfn, idOficina);
 
 				listasGestores.put(g1.getId(), g1);
 
@@ -77,43 +80,110 @@ public class ConsolaBanco {
 				System.out.println("--------------------------------------------");
 
 				break;
-			// mostrar info si estudiante es distinto de null
+			
 			case 2:
+				System.out.println("--------------------------------------------");
 
-				for(int i = 0; i < 10 ; i++) {
-					String nombreLlamado = utiles.nombreAleatorio();
+				//colocan gestores de forma masiva
+				
+				int i ;
+				
+				String nombreLlamado = null;
+				
+				String telefonoLlamado =null ;
+				
+				int idOficinaLlamado = 0;
+				
+				for( i = 0; i < 10 ; i++) {
 					
 					
+					System.out.println("Id del Gestor :"+ " " + i);
+
 					
-					System.out.println(nombreLlamado);
+					nombreLlamado = utiles.nombreAleatorio();
+					
+					//int idLlamado = utiles.idAleatorio();
+					
+					telefonoLlamado = utiles.telefonoAleatorio();
+					
+					
+					 idOficinaLlamado = utiles.idOficinaAleatorio();
+					
+					
+						Gestor1 = new Gestor (i, nombreLlamado, telefonoLlamado,idOficinaLlamado);
+						
+						listasGestores.put(Gestor1.getId(), Gestor1);
+						
+					
+					System.out.println("--------------------------------------------");
+					
 				
 				}
 				
-				
-				
-				
-				
+			
+			
 				break;
-			// añadir nota si estudiante es distinto de null
+			// Obteniendo un gestor
 			case 3:
 
+				
+				
+				System.out.println("coloca un numero de 0 al 9 para obtener un gestor");
+				
+				System.out.println("--------------------------------------------");
+				
+				int numero = keyboard.nextInt();
+				
+				
+				 
+				
+				System.out.println(listasGestores.get(numero));
+
+				
+				
+				//g1.mostrarInfo();
+				
+				//System.out.println(listasGestores.get(numero));
+				
+			
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				break;
-			// reiniciar notas si estudiante es distinto de null
+			
 			case 4:
-				if (listasGestores.size() == 0) {
-
-					System.out.println("todavia no ahi gestores");
-
-				}
-
+				System.out.println("Obteniedno todos los Gestores");
+				
+				System.out.println("--------------------------------------------");
+			
 				listasGestores.forEach((id, gestor) -> {
 					gestor.mostrarInfo();
 
 				});
+				break;
 			case 5:
-				/*
-				 * if (estudiante != null) { estudiante.mostrarNotas(); }
-				 */
+				System.out.println("Actualiza el ID del gestor:");
+				int actualizaGestorId = keyboard.nextInt();
+				//g1.actualizarPersona(actualizaGestorId);*/
+				
+				/*listasGestores.forEach((id, gestor) -> {
+					gestor.actualizarPersona(actualizaGestorId);
+
+				});*/
+				
+				listasGestores.forEach((id, gestor) -> {
+					gestor.actualizarPersona(actualizaGestorId);
+
+				});
+				
+			System.out.println("Id actualizado");
+				
 				break;
 			default:
 				System.out.println("Opción desconocida...");

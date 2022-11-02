@@ -20,7 +20,11 @@ public class Gestor extends Personas {
 	
 	}
 
-	
+	public void actualizarPersona() {
+		super.actualizarPersona(nuevoId);
+		System.out.println("nuevo ID:" + nuevoId );
+		System.out.println("--------------------------------------------");
+	}
 	
 	
 	

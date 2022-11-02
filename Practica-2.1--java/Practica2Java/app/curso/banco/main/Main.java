@@ -20,6 +20,7 @@ public class Main {
 	Cliente c2H = new Cliente (1 , "ALE", "123456", 0);
 	
 	
+	
 	c2H.abrirCuenta("ES123", 88.0f);
 	System.out.println("--------------------------------------");
 	c2H.mostrarInfo();
