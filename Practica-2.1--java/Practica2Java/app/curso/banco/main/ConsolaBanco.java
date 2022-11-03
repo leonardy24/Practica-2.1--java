@@ -14,9 +14,7 @@ public class ConsolaBanco {
 
 		HashMap<Integer, Cliente> listasClientes = new HashMap<>();
 
-		// commit
-		// commit2.2
-		///probando2.1
+		//commit3
 		Scanner keyboard = new Scanner(System.in);
 		
 		Gestor g1 = null;
